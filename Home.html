@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Management Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Hajiri</h2>
+        <nav>
+            <ul>
+                <li class="active"><i class="bi bi-house"></i> Dashboard</li>
+                <li class="sub">PEOPLE</li>
+                <li><i class="bi bi-person-add"></i> Employee</li>
+                <li><i class="bi bi-people"></i> Team</li>
+                <!-- management -->
+                <li class="sub">MANAGEMENT</li>
+                <li><i class="bi bi-calendar-date"></i> Attendance</li>
+                <li><i class="bi bi-alarm"></i> Leaves</li>
+                <li><i class="bi bi-wallet-fill"></i> Expense</li>
+                <li><i class="bi bi-box"></i> Assets</li>
+                <li><i class="bi bi-bar-chart"></i> Reports</li>
+                <li><i class="bi bi-coin"></i> Super Coins</li>
+                <!-- payroll -->
+                <li class="sub">PAYROLL</li>
+                <li><i class="bi bi-patch-plus"></i> Dashboard</li>
+                <li><i class="bi bi-scissors"></i> EPF, ESI & TDS</li>
+                <li><i class="bi bi-layers"></i> Generate Salary Slip</li>
+                <!-- company -->
+                <li class="sub">COMPANY</li>
+                <li><i class="bi bi-building"></i> Company Setting</li>
+                <li><i class="bi bi-stopwatch"></i> Attendance Setting</li>
+                <li><i class="bi bi-wallet-fill"></i> Leave Setting</li>
+                <li><i class="bi bi-cash"></i> Salary Setting</li>
+                <!-- extras -->
+                <li class="extra">
+                    <b>Premium</b> <i class="fa-solid fa-crown"></i>
+                    <p>Valid up to 12 months</p>
+                </li>
+                
+
+            </ul>
+        </nav>
+    </div>
+    <div class="main-content">
+        <header>
+            <h2>Expense Management</h2>
+            <div class="user-info">
+                <span><i class="fa-solid fa-inbox"></i> My Inbox</span>
+                <span class="user-icon">M</span>
+            </div>
+        </header>
+
+        <nav class="tabs">
+            <a href="#" class="tab active">Dashboard</a>
+            <a href="#" class="tab">Expense Request</a>
+            <a href="#" class="tab">Company Expense Policy</a>
+            <a href="#" class="tab">Company Wallet</a>
+        </nav>
+        <!-- nav script -->
+         <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const tabs= document.querySelectorAll(".tab");
+                const currentPath= window.location.pathname.split("/").pop();
+
+                tabs.forEach(tab => {
+                    if(tab.getAttribute("href") === currentPath){
+                        tab.classList.add("active");
+                    }else{
+                        tab.classList.remove("active");
+                    }
+                });
+            });
+         </script>
+
+         <!--  sections-->
+           <div class="clearfix">
+            <!-- left -->
+                <!-- date -->
+                <div class="left-section">
+                    <div class="date-range-container">
+                        <span class="date-range-label">Date Range</span>
+                        <div class="date-picker">
+                            <i class="arrow-left"><</i>
+                            <span>January, 2025</span>
+                            <i class="calender-icon">📅</i>
+                            <i class="arrow-right">></i>
+                        </div>
+                    </div>
+                    <!-- wallet card -->
+                     
+                    <div class="wallet card">
+                        <h3>Wallet Details</h3>
+                        <p class="wallet-balance">₹16,05,849</p>
+                        <p class="blue-section">Spending Limits: ₹10,05,849</p>
+                    </div>
+                    <!-- Employee Wallet Transactions -->
+                    <div class="card">
+                        <h3>Employee Wallet Transactions</h3>
+
+                        <!-- cards of transaction -->
+                         <div class="transaction-row">
+                            <div class="transaction-details">
+                                <p class="emp-name">Eleanor Pena</p>
+                                <p class="department">Department: <span>Sales Department</span></p>
+                            </div>
+                            <div class="trasaction-info">
+                                <p class="amount">₹10,849</p>
+                                <p class="date">Jan, 23</p>
+                            </div>
+                         </div>
+                         <div class="transaction-row">
+                            <div class="transaction-details">
+                                <p class="emp-name">Eleanor Pena</p>
+                                <p class="department">Department: <span>IT Department</span></p>
+                            </div>
+                            <div class="trasaction-info">
+                                <p class="amount">₹9,849</p>
+                                <p class="date">Jan, 23</p>
+                            </div>
+                         </div>
+                         <div class="transaction-row">
+                            <div class="transaction-details">
+                                <p class="emp-name">Eleanor Pena</p>
+                                <p class="department">Department: <span>Relation Manager</span></p>
+                            </div>
+                            <div class="trasaction-info">
+                                <p class="amount">₹8,849</p>
+                                <p class="date">Jan, 23</p>
+                            </div>
+                         </div>
+                         <div class="transaction-row">
+                            <div class="transaction-details">
+                                <p class="emp-name">Eleanor Pena</p>
+                                <p class="department">Department: <span>Software Develop</span></p>
+                            </div>
+                            <div class="trasaction-info">
+                                <p class="amount">₹27,849</p>
+                                <p class="date">Jan, 23</p>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+           <!-- right -->
+            <div class="right-section">
+                <div class="expense-container">
+                    <div class="expense-card">
+                        <div class="expense-header">
+                            <div class="expense-icon"><i class="fa-solid fa-box-archive"></i></div>
+                            <p class="expense-title">Settled Expense</p>
+                        </div>
+                        <p class="expense-amount">₹1,24,420</p>
+                        <p class="expense-trend">
+                            <svg width="16" height="16" fill="#2c946f" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 10l4-4 3 3 4-4 1 1-5 5-3-3-3 3z"></path>
+                            </svg>
+                            <span>1.3% Up from past week</span>
+                        </p>
+                    </div>
+                    
+                    <div class="expense-card">
+                        <div class="expense-header">
+                            <div class="expense-icon"><i class="fa-solid fa-box-archive"></i></div>
+                            <p class="expense-title">Un-Settled Expense</p>
+                        </div>
+                        <p class="expense-amount">₹80,240</p>
+                        <p class="expense-trend">
+                            <svg width="16" height="16" fill="#f83d65" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 10l4-4 3 3 4-4 1 1-5 5-3-3-3 3z"></path>
+                            </svg>
+                            <span>4.3% Dow from past week</span>
+                        </p>
+                    </div>
+                    <div class="expense-card">
+                        <div class="expense-header">
+                            <div class="expense-icon"><i class="fa-solid fa-box-archive"></i></div>
+                            <p class="expense-title">In Process</p>
+                        </div>
+                        <p class="expense-amount">₹34,240</p>
+                        <p class="expense-trend">
+                            <span>24 Request in this week</span>
+                        </p>
+                    </div>
+                    <div class="expense-card">
+                        <div class="expense-header">
+                            <div class="expense-icon"><i class="fa-solid fa-box-archive"></i></div>
+                            <p class="expense-title">Rejected Expense</p>
+                        </div>
+                        <p class="expense-amount">₹1,240</p>
+                        <p class="expense-trend">
+                            <span>12 Request in this week</span>
+                        </p>
+                    </div>
+                    <div class="expense-card">
+                        <div class="expense-header">
+                            <div class="expense-icon"><i class="fa-solid fa-box-archive"></i></div>
+                            <p class="expense-title">Client Expense</p>
+                        </div>
+                        <p class="expense-amount">₹14,240</p>
+                        <p class="expense-trend">
+                            <svg width="16" height="16" fill="#2c946f" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 10l4-4 3 3 4-4 1 1-5 5-3-3-3 3z"></path>
+                            </svg>
+                            <span>1.3% Up from past week</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- horizontal sections -->
+                 <div class="horizontal-sections">
+                    <div class="ls">
+                        <div class="expense-categories compact">
+                            <div class="header">
+                              <div class="title">
+                                <h3>Categories</h3>
+                                <span>Week 1</span>
+                              </div>
+                              <div class="overview">
+                                <h1>10</h1>
+                                <p>Types Of Expense</p>
+                                <span>Defined By Your organisation</span>
+                              </div>
+                            </div>
+                            
+                            <ul class="expense-list">
+                              <li>
+                                <span class="dot" style="background-color: #F87171;"></span>
+                                Travel & Transportation (20%)
+                                <span class="amount">₹80,240</span>
+                              </li>
+                              <li>
+                                <span class="dot" style="background-color: #60A5FA;"></span>
+                                Employee Reimbursements (18%)
+                                <span class="amount">₹23,240</span>
+                              </li>
+                              <li>
+                                <span class="dot" style="background-color: #FBBF24;"></span>
+                                Office & Administration (11%)
+                                <span class="amount">₹13,240</span>
+                              </li>
+                              <li>
+                                <span class="dot" style="background-color: #34D399;"></span>
+                                Client Engagement & Entertainment (9%)
+                                <span class="amount">₹11,240</span>
+                              </li>
+                              <li>
+                                <span class="dot" style="background-color: #06B6D4;"></span>
+                                Training & Development (8%)
+                                <span class="amount">₹10,240</span>
+                              </li>
+                              <li>
+                                <span class="dot" style="background-color: #A78BFA;"></span>
+                                Professional Fees (10%)
+                                <span class="amount">₹20,240</span>
+                              </li>
+                              <li>
+                                <span class="dot" style="background-color: #FB923C;"></span>
+                                IT & Software (10%)
+                                <span class="amount">₹40,240</span>
+                              </li>
+                              <li>
+                                <span class="dot" style="background-color: #8B5CF6;"></span>
+                                Miscellaneous Expenses (6%)
+                                <span class="amount">₹50,240</span>
+                              </li>
+                            </ul>
+                          </div>
+                          
+                    </div>
+
+                    <div class="rs">
+                        <div class="client-report">
+                            <div class="header">
+                                <h2>Client Report</h2>
+                                <span>Week 1</span>
+                            </div>
+                        
+                            <div class="report-item">
+                                <div class="logo">
+                                    <i class="fa-solid fa-snowflake"></i>
+                                </div>
+                                <div class="details">
+                                    <h3>Wekrata</h3>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 50%;"></div>
+                                    </div>
+                                    <p>50%</p>
+                                    <p class="total">Total money spend till now ₹54,240</p>
+                                </div>
+                                <div class="amount">
+                                    <h4>₹54,240</h4>
+                                    <p>This week</p>
+                                    <button>View The Details <i class="fa-solid fa-chevron-down"></i></button>
+                                </div>
+                            </div>
+                        
+                            <div class="report-item">
+                                <div class="logo">
+                                    <i class="fa-solid fa-tree"></i>
+                                </div>
+                                <div class="details">
+                                    <h3>Wekrata</h3>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 60%;"></div>
+                                    </div>
+                                    <p>60%</p>
+                                    <p class="total">Total money spend till now ₹54,240</p>
+                                </div>
+                                <div class="amount">
+                                    <h4>₹54,240</h4>
+                                    <p>This week</p>
+                                    <button>View The Details <i class="fa-solid fa-chevron-down"></i></button>
+                                </div>
+                            </div>
+                            <div class="report-item">
+                                <div class="logo">
+                                    <i class="fa-solid fa-bug"></i>
+                                </div>
+                                <div class="details">
+                                    <h3>Wekrata</h3>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 30%;"></div>
+                                    </div>
+                                    <p>30%</p>
+                                    <p class="total">Total money spend till now ₹54,240</p>
+                                </div>
+                                <div class="amount">
+                                    <h4>₹54,240</h4>
+                                    <p>This week</p>
+                                    <button>View The Details <i class="fa-solid fa-chevron-down"></i></button>
+                                </div>
+                            </div>
+                            <div class="report-item">
+                                <div class="logo">
+                                    <i class="fa-solid fa-bug"></i>
+                                </div>
+                                <div class="details">
+                                    <h3>Wekrata</h3>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 90%;"></div>
+                                    </div>
+                                    <p>90%</p>
+                                    <p class="total">Total money spend till now ₹54,240</p>
+                                </div>
+                                <div class="amount">
+                                    <h4>₹54,240</h4>
+                                    <p>This week</p>
+                                    <button>View The Details <i class="fa-solid fa-chevron-down"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                 </div>
+            </div>
+    </div>
+</body>
+</html>
